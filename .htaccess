@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /Lab11Web/
+
+# Jangan process jika request adalah file atau folder yang ada
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite semua ke index.php dengan path sebagai query string
+
+RewriteRule ^(.+)$ index.php?path=$1 [QSA,L]
+</IfModule>
